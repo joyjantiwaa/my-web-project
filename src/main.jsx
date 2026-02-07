@@ -10,11 +10,11 @@ import {
   Card,
   Paragraph
 } from '@jpjoy-lookmix/lookmix-design-system';
+import '@jpjoy-lookmix/lookmix-design-system/dist/index.css'; 
 import heroImage from './assets/hero-model.png';
 import scan from './assets/scan.png';
 import submain from './assets/submain.png';
 import daily from './assets/daily.png';
-import '@jpjoy-lookmix/lookmix-design-system/dist/index.css'; 
 import './app-layout.scss';
 
 const navItems = [
