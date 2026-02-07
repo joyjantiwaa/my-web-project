@@ -1,0 +1,249 @@
+/* =========================
+   Variables (ห้ามเปลี่ยนค่า)
+========================= */
+$tablet: 480px;
+$laptop: 1024px;
+$hd: 1920px;
+$text-primary: var(--colors-text-primary);
+
+body { font-family: 'Inter', sans-serif; }
+
+/* ============================================================
+   1. HERO SECTION
+============================================================ */
+.lm-hero-section {
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+
+  .lm-hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.8;
+
+    .lm-everydownload-group { display: flex; flex-direction: column; }
+    .hero-text-everyday-left, .hero-text-day {
+      font-weight: 800; color: $text-primary; margin: 0; padding: 0;
+    }
+    .hero-text-fashion { font-weight: 400; color: $text-primary; }
+    .hero-text-right-group {
+      display: flex; flex-direction: column; align-items: flex-start; line-height: 0.85;
+    }
+    .hero-image-wrapper img { width: 100%; height: auto; display: block; }
+
+    .lm-hero-download {
+      display: flex;
+      flex-direction: column;
+      margin-top: 80px;
+      .download-title { margin-bottom: 24px; }
+      .download-buttons {
+        display: flex; gap: 16px;
+        .lm-footer-store-btn { display: inline-flex; align-items: center; gap: 8px; }
+      }
+    }
+  }
+
+  // --- จอ HD (ค่าเดิมพี่) ---
+  @media (min-width: $hd) {
+    .lm-hero-visual {
+      gap: 40px;
+      .lm-everydownload-group { margin-top: 120px; }
+      .hero-text-everyday-left, .hero-text-day { font-size: 160px; }
+      .hero-text-fashion { font-size: 128px; }
+      .hero-image-wrapper { width: 396px; }
+    }
+  }
+
+  // --- จอ Laptop (ค่าเดิมพี่) ---
+  @media (min-width: $laptop) and (max-width: 1919px) {
+    .lm-hero-visual {
+      gap: 30px;
+      .lm-everydownload-group { margin-top: 120px; }
+      .hero-text-everyday-left, .hero-text-day { font-size: 94px; }
+      .hero-text-fashion { font-size: 80px; }
+      .hero-image-wrapper { width: 303px; }
+    }
+  }
+
+  // --- จอ Tablet (ค่าเดิมพี่) ---
+  @media (min-width: 481px) and (max-width: 1023px) {
+    padding-block: 155px;
+    .lm-hero-visual {
+      gap: 15px;
+      .hero-text-everyday-left, .hero-text-day { font-size: 40px; }
+      .hero-text-fashion { font-size: 24px; }
+      .hero-image-wrapper { width: 180px; }
+      .lm-everydownload-group { margin-top: -30px; }
+    }
+  }
+
+  // --- จอ Mobile (ค่าเดิมพี่) ---
+  @media (max-width: 480px) {
+    padding-block: 132px;
+    .lm-hero-visual {
+      .hero-image-wrapper { width: 140px; }
+      .hero-text-everyday-left, .hero-text-day { font-size: 40px; }
+      .hero-text-fashion { font-size: 24px; font-weight: 400; }
+      .lm-everydownload-group { margin-top: -20px; }
+    }
+  }
+}
+
+/* ============================================================
+   2. MOBILE DOWNLOAD (จุดที่พี่ต้องแก้เรื่องซ่อน)
+============================================================ */
+.mobile-download { display: none; }
+
+@media (max-width: 1024px) {
+  .lm-hero-section .lm-hero-download { display: none !important; } // ซ่อนในกลุ่ม EVERY
+  
+  .mobile-download {
+    display: block; text-align: center;
+    .lm-hero-download2 {
+      display: flex; flex-direction: column; align-items: center;
+      padding-bottom: var(--spacing-xxl);
+      .download-title { margin-bottom: 20px; }
+      .download-buttons {
+        display: flex; flex-direction: row; gap: 12px;
+        .lm-footer-store-btn { width: 100%; justify-content: center; }
+      }
+    }
+  }
+}
+
+/* ============================================================
+   3. FEATURE SECTIONS (2,3,4) - แก้ไขการทับกัน
+============================================================ */
+.lm-feature-section { padding: var(--spacing-large); }
+.lm-feature-container {
+  max-width: 1440px; display: flex; align-items: center; margin-inline: auto; gap: var(--spacing-xxl);
+  // ลบ max-height ออกเพื่อไม่ให้ทับกัน
+}
+.lm-feature-text { 
+  flex: 1; color: $text-primary;
+  .feature-step { display: block; margin-bottom: 0; }
+  .feature-title { margin-bottom: 0; }
+}
+.lm-feature-image {
+  flex: 1; max-height: 590px; aspect-ratio: 3 / 4; display: flex; justify-content: center;
+  img { width: 100%; height: 100%; object-fit: contain; }
+}
+
+@media (min-width: 1024px) and (max-width: 1919px) {
+  .lm-feature-section { padding: 110px; } // ลบ max-height/max-width ล็อคตายตัวออก
+  .lm-feature-image { max-height: 500px; }
+}
+
+@media (max-width: 1023px) {
+  .lm-feature-container { flex-direction: column; text-align: left; gap: var(--spacing-xl); }
+  .lm-feature-image { order: -1; padding-inline: var(--spacing-large); }
+}
+
+/* ============================================================
+   4. EXPLORE SECTION GRID
+============================================================ */
+.lm-explore-section {
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  padding-block: 200px;
+
+  /* default = mobile / tablet */
+  padding-inline: var(--spacing-large);
+
+  h1 {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  p {
+    max-width: 800px;
+    margin: 0 0 64px;
+  }
+
+  .lm-card-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile default */
+    gap: 24px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /* =========================
+     ≥ 1024px (Laptop + Desktop)
+  ========================= */
+  @media (min-width: 1024px) {
+    padding-inline: 120px;
+
+    h1 {
+      margin-left: 0; /* ไม่ต้องดันเองแล้ว */
+    }
+
+    .lm-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-large);
+    }
+  }
+
+  /* =========================
+     ≥ 1920px (Desktop XL)
+  ========================= */
+  @media (min-width: 1920px) {
+    .lm-card-grid {
+      max-width: 1440px;
+    }
+  }
+}
+/* =========================
+   CALL TO ACTION SECTION
+========================= */
+
+.call-to-action {
+  text-align: center;
+  padding: var(--spacing-large);
+  padding-bottom: 452px; /* ❗ override เฉพาะ bottom ตามที่ขอ */
+  box-sizing: border-box;
+}
+
+/* Title */
+.action-title {
+  font-size: var(--typography-sizes-display-large);
+  font-weight: var(--typography-fontWeight-bold);
+  color: var(--colors-text-primary);
+}
+
+/* Subtitle */
+.action-subtitle {
+  font-size: var(--typography-sizes-display-small);
+  font-weight: var(--typography-fontWeight-bold);
+  color: var(--colors-text-secondary);
+}
+
+/* Download buttons */
+.call-to-action .download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-medium);
+  margin-top: var(--spacing-large);
+}
+
+html, body, .lm-app-wrapper {
+  min-height: 100%;
+  background: linear-gradient(
+    180deg,
+    #ffffff 14%,
+    #d3d3d3 100%
+  );
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px) scale(0.97);
+  transition: 
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

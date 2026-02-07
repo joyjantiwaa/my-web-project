@@ -1,0 +1,3 @@
+export { TabBar } from './tab-bar';
+export type { TabBarProps } from './tab-bar';
+export type { TabBarItem } from './tab-bar-item-type';
